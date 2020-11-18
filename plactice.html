@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array</title>
+    <style>
+        body {
+            padding: 100px
+        }
+    </style>
+</head>
+
+
+<body>
+
+<h1>Sample Screen</h1>
+<h3>Đầu vào kiểu text với id là : txtValue</h3>
+<input type="text" id="txtValue">
+<h3>Đầu vào với kiểu nút id : btnAdd giá trị Add , sự kiện onclick = gọi hàm add_elenment_to_array</h3>
+<input type="button" id="btnAdd" value="Add" onclick="add_element_to_array()">
+<h3>Đầu vào kiểu nút id : btnDisplay , giá trị Display, sự kiện chuột onclick hàm display_array</h3>
+<input type="button" id="btnDisplay" value="Display" onclick="display_array()">
+<h3>Khu kết quả trả về !!</h3>
+<div id="result"></div>
+
+
+<script>
+    let x = 0;
+    let array = Array();
+
+    function add_element_to_array() {
+        //Lấy giá trị từ input-text và gán phần tử ở vị trí x trong mảng mỗi lần hàm add_element_to_array() được gọi
+        array[x] = document.getElementById("txtValue").value;
+        //Hiển thị phần tử vừa được thêm vào mảng
+        alert("Element: " + array[x] + " Added at index " + x);
+        //Tăng giá trị x lên 1
+        x++;
+        //Gán giá trị rỗng cho input-text
+        document.getElementById("txtValue ").value = "";
+    }
+
+    function display_array() {
+        //Tạo biến e để lưu thẻ <hr> mỗi lần hiển thị một phần tử thẻ <hr> sử dụng để phân cách các phần tử trong mảng: var e = "<hr/>"
+        let e = "<hr/>";
+        //Dùng vòng lặp for duyệt toàn bộ mảng: for (var i=0; i<array.length; i++)
+        //Mỗi lần duyệt lấy giá trị của các phần tử cộng dồn vào biến e. Thêm thẻ <br/> cuối mỗi lần duyệt.
+        for (let i = 0; i < array.length; i++) {
+            e += "Element " + i + " = " + array[i] + "<br/>";
+        }
+        //Kết thúc lặp. Hiển thị biến e
+        document.getElementById("result").innerHTML = e;
+    }
+</script>
+</body>
+</html>
